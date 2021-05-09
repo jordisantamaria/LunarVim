@@ -75,7 +75,7 @@ O = {
 '              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
 '                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|',
 		},
-		footer= {'chrisatmachine.com'}
+		footer= {'santamaria.jordi@nicosys.jp'}
 	}
 }
 
