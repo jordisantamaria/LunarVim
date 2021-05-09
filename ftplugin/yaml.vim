@@ -1,3 +1,2 @@
-set ts=2
-set sw=2             
-
+set ts=4
+set sw=4             

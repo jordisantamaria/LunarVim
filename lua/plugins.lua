@@ -38,13 +38,14 @@ return require("packer").startup(
         -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
         use {"neovim/nvim-lspconfig", opt = true}
         use {"glepnir/lspsaga.nvim", opt = true}
+		-- use {'glepnir/lspsaga.nvim', branch = 'enhance-window'}
         use {"kabouzeid/nvim-lspinstall", opt = true}
 
         -- Telescope
         use {"nvim-lua/popup.nvim", opt = true}
         use {"nvim-lua/plenary.nvim", opt = true}
         use {"nvim-telescope/telescope.nvim", opt = true}
-        use {"nvim-telescope/telescope-fzy-native.nvim", opt = true}
+		-- use 'nvim-telescope/telescope-media-files.nvim'
 
         -- Debugging
         use {"mfussenegger/nvim-dap", opt = true}
@@ -57,23 +58,22 @@ return require("packer").startup(
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
         use {"windwp/nvim-ts-autotag", opt = true}
+		use 'nvim-treesitter/playground'
 
         -- Explorer
-        use {"kyazdani42/nvim-tree.lua", opt = true}
+        use "kyazdani42/nvim-tree.lua"
         -- TODO remove when open on dir is supported by nvimtree
         use "kevinhwang91/rnvimr"
 
         -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
-        use {"lewis6991/gitsigns.nvim", opt = true}
-        -- use {"liuchengxu/vim-which-key", opt = true}
         use {"folke/which-key.nvim", opt = true}
         use {"ChristianChiarulli/dashboard-nvim", opt = true}
         use {"windwp/nvim-autopairs", opt = true}
         use {"terrortylor/nvim-comment", opt = true}
-        use {"kevinhwang91/nvim-bqf", opt = true}
 
         -- Color
-        use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+		use 'jordisantamaria/nvcode-color-schemes.vim'
+		use 'norcalli/nvim-colorizer.lua'
 
         -- Icons
         use {"kyazdani42/nvim-web-devicons", opt = true}
@@ -81,6 +81,79 @@ return require("packer").startup(
         -- Status Line and Bufferline
         use {"glepnir/galaxyline.nvim", opt = true}
         use {"romgrk/barbar.nvim", opt = true}
+
+		-- Git
+        use {"lewis6991/gitsigns.nvim", opt = true}
+		use 'tpope/vim-fugitive'
+		use 'tpope/vim-rhubarb'
+		use 'tommcdo/vim-fubitive'
+		use 'rhysd/git-messenger.vim'
+
+		-- Registers
+		-- use 'gennaro-tedesco/nvim-peekup'
+
+
+		-- Navigation
+		use 'unblevable/quick-scope'
+		use 'phaazon/hop.nvim'
+
+		-- Object and motions
+
+		-- common utils for textobj plugins
+		use 'kana/vim-textobj-user'
+		-- Object for file ae, file no empty lines ie
+		use 'kana/vim-textobj-entire'
+		-- Object for search, i/ a/
+		use 'kana/vim-textobj-lastpat'
+		-- For select text on same indent level with ai
+		use 'kana/vim-textobj-indent'
+		-- Object for select a line, al with identation, il without identation
+		use 'kana/vim-textobj-line'
+		-- Object for select a variable segment, so snake case or camel case segment, with iv or av
+		use 'Julian/vim-textobj-variable-segment'
+		-- Motion for camelcase snakecase part
+		use 'bkad/CamelCaseMotion'
+
+		-- General enhancements
+
+		-- Search visual text selected with *
+		use 'jordisantamaria/vim-visual-star-search'
+		-- For better abrev and change snake_case to camelCase with crs, crc
+		use 'tpope/vim-abolish'
+		-- file system
+		use 'jordisantamaria/vim-file-utils'
+		-- Auto save buffer and session
+		use 'jordisantamaria/vim-workspace'
+		use 'tpope/vim-surround'
+		--  Repeat stuff
+		use 'tpope/vim-repeat'
+		-- Csv rainbow
+		use 'mechatroner/rainbow_csv'
+		-- Move between vim windows and tmux panes with same keys
+		use 'christoomey/vim-tmux-navigator'
+
+		-- General Plugins
+		use 'kevinhwang91/nvim-bqf'
+		-- For find in quickfix
+		use 'jremmen/vim-ripgrep'
+		-- For use fuzy finder in quickfix
+		use 'junegunn/fzf'
+		use 'airblade/vim-rooter'
+		use 'metakirby5/codi.vim'
+		use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
+		use 'voldikss/vim-floaterm'
+		use 'monaqa/dial.nvim'
+		use 'junegunn/goyo.vim'
+		use 'andymass/vim-matchup'
+		use 'turbio/bracey.vim'
+		-- learn vim movements
+		use 'tjdevries/train.nvim'
+
+		-- Database
+		-- use 'tpope/vim-dadbod'
+		-- use 'kristijanhusak/vim-dadbod-ui'
+		-- use 'kristijanhusak/vim-dadbod-completion'
+
 
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")

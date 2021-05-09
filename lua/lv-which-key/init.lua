@@ -5,7 +5,7 @@ require("which-key").setup {
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-            operators = true, -- adds help for operators like d, y, ...
+			operators = false, -- adds help for operators like d, y, ...
             motions = true, -- adds help for motions
             text_objects = true, -- help for text objects triggered after entering an operator
             windows = true, -- default bindings on <c-w>
@@ -48,7 +48,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true}
 vim.g.mapleader = ' '
 
 -- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>n', ':let @/ = ""<CR>', {noremap = true, silent = true})
 
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
@@ -57,15 +57,20 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
 
 -- dashboard
-vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>', {noremap = true, silent = true})
 
 -- Comments
 vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
 
--- close buffer
-vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
+-- markdown preview
+vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreviewToggle<CR>', {noremap = true, silent = true})
 
+-- Ranger
+vim.api.nvim_set_keymap('n', '<Leader>o', ':RnvimrToggle<CR>', {noremap = true, silent = true})
+
+-- Ranger
+vim.api.nvim_set_keymap('n', '<Leader>T', ':TSHighlightCapturesUnderCursor<CR>', {noremap = true, silent = true})
 -- TODO create entire treesitter section
 
 local mappings = {
@@ -73,7 +78,39 @@ local mappings = {
     ["c"] = "Close Buffer",
     ["e"] = "Explorer",
     ["f"] = "Find File",
-    ["h"] = "No Highlight",
+    ["n"] = "No Highlight",
+	["m"] = "Markdown Preview",
+	["o"] = "Ranger",
+	["T"] = "Treesitter highlight",
+	["v"] = {"<C-W>v", "Split vertical"},
+	["h"] = {"<C-W>s", "Split horizontal"},
+	["z"] = {":Goyo<CR>", "Zen"},
+    a = {
+        name = "+Actions",
+        v = {":Codi<CR>", "Virtual REPL on"},
+        V = {":Codi!<CR>", "Virtual REPL off"},
+        l = {":Bracey<CR>", "Html live server"},
+        L = {":BraceyStop<CR>", "Html live server"},
+        w = {":TrainWord<CR>", "Train word"},
+        m = {":TrainUpDown<CR>", "Train line"},
+		o = {":TrainTextObj<CR>", "Train Object"},
+    },
+    b = {
+        name = "+Buffer",
+        ["1"] = {":BufferGoto 1<CR>", "Buffer 1"},
+        ["2"] = {":BufferGoto 2<CR>", "Buffer 2"},
+        ["3"] = {":BufferGoto 3<CR>", "Buffer 3"},
+        ["4"] = {":BufferGoto 4<CR>", "Buffer 4"},
+        ["5"] = {":BufferGoto 5<CR>", "Buffer 5"},
+        ["6"] = {":BufferGoto 6<CR>", "Buffer 6"},
+        ["7"] = {":BufferGoto 7<CR>", "Buffer 7"},
+        ["8"] = {":BufferGoto 8<CR>", "Buffer 8"},
+        ["9"] = {":BufferGoto 9<CR>", "Buffer 9"},
+        d = {":BufferClose<CR>", "delete-buffer"},
+        o = {":BufferCloseAllButCurrent<CR>", "Delete all but current"},
+        a = {":bufdo bwipeout<CR>", "Delete all buffers"},
+        h = {":TSBufToggle highlight<CR>", "Toogle treesitter highlight"},
+    },
     d = {
         name = "+Debug",
         b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
@@ -85,17 +122,16 @@ local mappings = {
     },
     g = {
         name = "+Git",
-        j = {"<cmd>NextHunk<cr>", "Next Hunk"},
-        k = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
-        p = {"<cmd>PreviewHunk<cr>", "Preview Hunk"},
-        r = {"<cmd>ResetHunk<cr>", "Reset Hunk"},
-        R = {"<cmd>ResetBuffer<cr>", "Reset Buffer"},
-        s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
-        u = {"<cmd>UndoStageHunk<cr>", "Undo Stage Hunk"},
-        o = {"<cmd>Telescope git_status<cr>", "Open changed file"},
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
-        C = {"<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)"},
+        b = {":Gblame<CR>", "blame"},
+        B = {":GBrowse<CR>", "browser current file"},
+        d = {":Gdiffsplit<CR>", "diff split"},
+        D = {":Git diff<CR>", "diff"},
+        R = {":ResetBuffer<CR>", "Reset buffer"},
+        s = {":Gstatus<CR>", "status"},
+        m = {"<Plug>(git-messenger)", "message"},
+        ["1"] = {":diffget //2<CR>", "Diffget left"},
+        ["3"] = {":diffget //3<CR>", "Diffget right"},
+        o = {":!sh ~/scripts/open-repository.sh<CR>", "Open repo"},
     },
     l = {
         name = "+LSP",
@@ -113,23 +149,70 @@ local mappings = {
         t = {"<cmd>LspTypeDefinition<cr>", "Type Definition"},
         x = {"<cmd>cclose<cr>", "Close Quickfix"},
         s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-        S = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols"}
+        S = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols"},
+        y = {":e ~/.config/nvim/lua/lsp/yaml-ls.lua<CR>", "Yaml config"}
     },
-
+    q = {
+        name = "+Quickfix",
+        n = {":cnext<CR>"        , "cnext"},
+        p = {":cprev<CR>"        , "cprev"},
+        o = {":copen<CR>"        , "copen"},
+        q = {":cclose<CR>"       , "cclose"},
+        l = {":clast<CR>"        , "clast"},
+        w = {":Rg<CR>"           , "find cursor word"},
+        g = {":Glog %<CR>"       , "File git history"},
+    },
     s = {
         name = "+Search",
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
+        b = {"<cmd>Telescope git_branches<cr>", "File"},
+        s = {"<cmd>Telescope git_status<cr>", "Git status"},
+        c = {"<cmd>Telescope git_commits<cr>", "Git commits"},
+        C = {"<cmd>Telescope git_bcommits<cr>", "Git branch commits"},
         d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
         D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
+        h = {"<cmd>Telescope command_history<cr>", "History"},
         m = {"<cmd>Telescope marks<cr>", "Marks"},
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
+        o = {"<cmd>Telescope vim_options<cr>", "vim_options"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"}
     },
-    S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}}
+    t = {
+        name = "+Terminal",
+        [";"] = {":FloatermNew --wintype=normal --height=8<CR>", "Terminal"},
+        n = {":FloatermNew node<CR>", "Node"},
+        f = {":FloatermNew python<CR>", "Python"},
+        t = {":FloatermToggle<CR>", "Python"},
+    },
+
+
+    c = {
+        name = "+Cheatsheets",
+        c = {":e ~/projects/cheatsheets/cleanCode/index.md<CR>", "Clean code"},
+        r = {":e ~/projects/cheatsheets/resources/index.md<CR>", "Resources"},
+        d = {":e ~/projects/cheatsheets/docker/index.md<cr>", "Docker"},
+        p = {":e ~/projects/cheatsheets/python/index.md<cr>", "Python"},
+        v = {":e ~/projects/cheatsheets/vue/index.md<cr>", "Vue"},
+        s = {":e ~/projects/cheatsheets/ddd/index.md<cr>", "Software structure"},
+        a = {":e ~/projects/cheatsheets/aws/index.md<cr>", "Aws"},
+        t = {":e ~/projects/cheatsheets/bash/tmux.md<cr>", "Tmux"},
+        b = {":e ~/projects/cheatsheets/bash/index.md<cr>", "Bash"},
+        m = {":e ~/projects/cheatsheets/markdown/README.md<cr>", "Markdown"},
+        n = {":e ~/projects/cheatsheets/bash/vim/mappings.md<cr>", "Nvim"},
+    },
+    p = {
+        name = "+Personal",
+        w = {":e ~/personal/daily_objectives.md<cr>", "Daily objectives"},
+        f = {":e ~/personal/feedback.md", "Feedback<cr>"},
+        n = {":e ~/personal/notes.md<cr>", "Notes"},
+        l = {":e ~/personal/mindvalley/lifebook.md<cr>", "Lifebook"},
+        j = {":e ~/personal/vocabulary/japanese.csv<cr>", "Japense learning"},
+        J = {":e ~/personal/vocabulary/japanese_backlog.csv<cr>", "Japense backlog"},
+        e = {":e ~/personal/vocabulary/english.csv<cr>", "English learning"},
+        E = {":e ~/personal/vocabulary/english_backlog.csv<cr>", "English backlog"},
+        t = {":e ~/personal/things.md<cr>", "Things"},
+    },
 }
 
 local wk = require("which-key")

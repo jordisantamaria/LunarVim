@@ -63,3 +63,69 @@ autocmd User GoyoLeave set laststatus=2
 
 " autocmd! User GoyoEnter lua require('galaxyline').disable_galaxyline()
 " autocmd! User GoyoLeave lua require('galaxyline').galaxyline_augroup()
+
+let g:goyo_width=90
+let g:goyo_height=95
+
+augroup cloudformation
+	au!
+	au BufNewFile,BufRead *.yaml,*.yml set filetype=cloudformation
+augroup ENDV
+
+" Give a less contrast white for md files
+au BufNewFile,BufRead *.md hi Normal guifg=#B8BECC ctermfg=252 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
+
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.icons = "both"
+
+" Navigate in command line
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+let g:workspace_autosave_always = 1
+let g:workspace_autocreate = 1
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_undodir = $HOME . '/.vim/undo/'
+" let g:workspace_autosave_ignore = ['TelescopePrompt', 'NvimTree', '無名', '[Command Line]', 'vim', 'ignored', 'qf']
+let g:nvim_tree_width = 45 "30 by default
+let g:nvim_tree_ignore = [ '.git', '.idea', '.cache', '.undodir' ] "empty by default
+let g:workspace_autosave_files = ['python', 'typescript', 'yaml', 'yml', 'javascript', 'json', 'lua', 'vue', 'markdown', 'make', 'toml', 'sh', 'csv', 'zsh', 'conf']
+
+function! CleanupStuff()
+	NvimTreeClose
+endfunction
+
+autocmd VimLeavePre * call CleanupStuff()
+
+"Heading === line object
+onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rvg_"<cr>
+
+" with g@ calls function as an operator
+nnoremap R :set operatorfunc=ReplaceOperator<cr>g@
+vnoremap R :<c-u>call ReplaceOperator(visualmode())<cr>
+
+function! ReplaceOperator(type)
+    let saved_unnamed_register = @@
+
+    if a:type ==# 'v'
+        normal! `<v`>p
+    elseif a:type ==# 'V'
+        normal! `<V`>p
+    elseif a:type ==# 'char'
+        normal! `[v`]p
+    else
+        return
+    endif
+
+    let @@ = saved_unnamed_register
+endfunction
+
+" vim hardcodes background color erase even if the terminfo file does
+    " not contain bce (not to mention that libvte based terminals
+    " incorrectly contain bce in their terminfo files). This causes
+    " incorrect background rendering when using a color theme with a
+    " background color
+	let &t_ut=''
+
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
