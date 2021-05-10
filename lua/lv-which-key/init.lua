@@ -111,15 +111,13 @@ local mappings = {
         a = {":bufdo bwipeout<CR>", "Delete all buffers"},
         h = {":TSBufToggle highlight<CR>", "Toogle treesitter highlight"},
     },
-    d = {
-        name = "+Debug",
-        b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
-        c = {"<cmd>DebugContinue<cr>", "Continue"},
-        i = {"<cmd>DebugStepInto<cr>", "Step Into"},
-        o = {"<cmd>DebugStepOver<cr>", "Step Over"},
-        r = {"<cmd>DebugToggleRepl<cr>", "Toggle Repl"},
-        s = {"<cmd>DebugStart<cr>", "Start"}
-    },
+	d = {
+        name = "+Database",
+        t = {":DBUIToggle<CR>", "db ui toogle"},
+        f = {":DBUIFindBuffer<CR>", "db find buffer"},
+        r = {":DBUIRenameBuffer<CR>", "db rename buffer"},
+        l = {":DBUILastQueryInfo<CR>", "db last buffer"},
+	},
     g = {
         name = "+Git",
         b = {":Gblame<CR>", "blame"},

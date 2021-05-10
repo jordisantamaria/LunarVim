@@ -18,6 +18,7 @@ require('lv-treesitter')
 require('lv-autopairs')
 require('lv-rnvimr')
 require('lv-which-key')
+require('lv-dadbod')
 
 -- TODO is there a way to do this without vimscript
 vim.cmd('source ~/.config/nvim/vimscript/functions.vim')

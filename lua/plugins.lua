@@ -150,9 +150,9 @@ return require("packer").startup(
 		use 'tjdevries/train.nvim'
 
 		-- Database
-		-- use 'tpope/vim-dadbod'
-		-- use 'kristijanhusak/vim-dadbod-ui'
-		-- use 'kristijanhusak/vim-dadbod-completion'
+		use 'tpope/vim-dadbod'
+		use 'kristijanhusak/vim-dadbod-ui'
+		use 'kristijanhusak/vim-dadbod-completion'
 
 
         require_plugin("nvim-lspconfig")
