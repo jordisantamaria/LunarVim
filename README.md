@@ -43,6 +43,8 @@
 
 LunarVim provides neovim configuration files that take advantage of tree-sitter and language server protocol. The configuration is written in lua.
 
+Mappings I'm using can be found in https://github.com/jordisantamaria/cheatsheets/blob/master/bash/vim/mappings.md
+
 ## Why do I want tree-sitter and LSP?
 
 * Normally, an editor uses regular expression parsing for things like highlighting and checking the syntax of your file.  Each time you make a change, the editor must re-parse the entire file.  Tree-sitter, on the other hand, transforms text into a syntax tree.  Each time you make a change, only the parts of the code that change need to be parsed.  This greatly improves the speed of parsing. This can make a huge difference when editing large files.
