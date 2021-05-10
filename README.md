@@ -315,6 +315,7 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 
 ``` bash
 npm install -g prettier
+npm install -g prettier-plugin-organize-imports        # For optimize imports automatically when formatting code
 ```
 
 **Markdown**
