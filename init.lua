@@ -52,3 +52,5 @@ require('lsp.kotlin-ls')
 require('lsp.vue-ls')
 require('lsp.angular-ls')
 
+-- lsp saga is creating ca mappings, which conflicts which default behavior
+vim.cmd('nunmap ca')
