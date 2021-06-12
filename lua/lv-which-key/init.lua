@@ -101,22 +101,23 @@ local mappings = {
         ["2"] = {":BufferGoto 2<CR>", "Buffer 2"},
         ["3"] = {":BufferGoto 3<CR>", "Buffer 3"},
         ["4"] = {":BufferGoto 4<CR>", "Buffer 4"},
-        ["5"] = {":BufferGoto 5<CR>", "Buffer 5"}
+        ["5"] = {":BufferGoto 5<CR>", "Buffer 5"},
         ["6"] = {":BufferGoto 6<CR>", "Buffer 6"},
         ["7"] = {":BufferGoto 7<CR>", "Buffer 7"},
         ["8"] = {":BufferGoto 8<CR>", "Buffer 8"},
         ["9"] = {":BufferGoto 9<CR>", "Buffer 9"},
-        d = {":Bdelete hidden<CR>", "delete-buffer"},
+        d = {":BufferClose<CR>", "delete-buffer"},
+        o = {":Bdelete hidden<CR>", "Delete all but current"},
         a = {":Bdelete all<CR>", "Delete all buffers"},
         h = {":TSBufToggle highlight<CR>", "Toogle treesitter highlight"},
     },
-	d = {
+    d = {
         name = "+Database",
         t = {":DBUIToggle<CR>", "db ui toogle"},
         f = {":DBUIFindBuffer<CR>", "db find buffer"},
         r = {":DBUIRenameBuffer<CR>", "db rename buffer"},
         l = {":DBUILastQueryInfo<CR>", "db last buffer"},
-	},
+    },
     g = {
         name = "+Git",
         b = {":Gblame<CR>", "blame"},
