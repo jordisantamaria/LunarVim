@@ -101,14 +101,13 @@ local mappings = {
         ["2"] = {":BufferGoto 2<CR>", "Buffer 2"},
         ["3"] = {":BufferGoto 3<CR>", "Buffer 3"},
         ["4"] = {":BufferGoto 4<CR>", "Buffer 4"},
-        ["5"] = {":BufferGoto 5<CR>", "Buffer 5"},
+        ["5"] = {":BufferGoto 5<CR>", "Buffer 5"}
         ["6"] = {":BufferGoto 6<CR>", "Buffer 6"},
         ["7"] = {":BufferGoto 7<CR>", "Buffer 7"},
         ["8"] = {":BufferGoto 8<CR>", "Buffer 8"},
         ["9"] = {":BufferGoto 9<CR>", "Buffer 9"},
-        d = {":BufferClose<CR>", "delete-buffer"},
-        o = {":BufferCloseAllButCurrent<CR>", "Delete all but current"},
-        a = {":bufdo bwipeout<CR>", "Delete all buffers"},
+        d = {":Bdelete hidden<CR>", "delete-buffer"},
+        a = {":Bdelete all<CR>", "Delete all buffers"},
         h = {":TSBufToggle highlight<CR>", "Toogle treesitter highlight"},
     },
 	d = {
@@ -200,6 +199,7 @@ local mappings = {
         b = {":e ~/projects/cheatsheets/bash/index.md<cr>", "Bash"},
         m = {":e ~/projects/cheatsheets/markdown/README.md<cr>", "Markdown"},
         n = {":e ~/projects/cheatsheets/bash/vim/mappings.md<cr>", "Nvim"},
+        q = {":e ~/projects/cheatsheets/postgres/index.md<cr>", "postgresql"},
     },
     p = {
         name = "+Personal",

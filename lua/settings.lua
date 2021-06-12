@@ -38,6 +38,7 @@ vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 vim.o.ignorecase = true --Find match upper and low case, but If find only uppercase, only match uppercase
 vim.o.smartcase = true
 vim.cmd('set matchpairs+=<:>') -- TODO it dont works. Press %, Match < and > as well.
+vim.cmd('set nowrap') -- TODO it dont works. Press %, Match < and > as well.
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
 -- vim.o.guifont = "SauceCodePro Nerd Font:h17"
 -- vim.o.guifont = "FiraCode Nerd Font:h17"

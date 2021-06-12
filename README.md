@@ -315,6 +315,7 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 
 ``` bash
 npm install -g prettier
+npm install -g typescript
 npm install -g prettier-plugin-organize-imports        # For optimize imports automatically when formatting code
 ```
 
@@ -322,6 +323,13 @@ npm install -g prettier-plugin-organize-imports        # For optimize imports au
 
 ``` bash
 pandoc
+```
+
+**If have issues installing plugins for permissions, do that**
+```
+sudo chown -R `whoami`:admin /usr/local/bin
+sudo chown -R `whoami`:admin /usr/local/share
+sudo chown -R `whoami`:admin /usr/local/opt
 ```
 
 # De-bugging

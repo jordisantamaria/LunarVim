@@ -75,15 +75,15 @@ return require("packer").startup(
 		use 'jordisantamaria/nvcode-color-schemes.vim'
 		use 'norcalli/nvim-colorizer.lua'
 
-        -- Icons
-        use {"kyazdani42/nvim-web-devicons", opt = true}
+		-- Icons
+		use {"kyazdani42/nvim-web-devicons", opt = true}
 
-        -- Status Line and Bufferline
-        use {"glepnir/galaxyline.nvim", opt = true}
-        use {"romgrk/barbar.nvim", opt = true}
+		-- Status Line and Bufferline
+		use {"glepnir/galaxyline.nvim", opt = true}
+		use {"romgrk/barbar.nvim", opt = true}
 
-		-- Git
-        use {"lewis6991/gitsigns.nvim", opt = true}
+			-- Git
+		use {"lewis6991/gitsigns.nvim", opt = true}
 		use 'tpope/vim-fugitive'
 		use 'tpope/vim-rhubarb'
 		use 'tommcdo/vim-fubitive'
@@ -148,6 +148,9 @@ return require("packer").startup(
 		use 'turbio/bracey.vim'
 		-- learn vim movements
 		use 'tjdevries/train.nvim'
+		-- For inteligent auto identation
+		use 'tpope/vim-sleuth'
+		use 'Asheq/close-buffers.vim'
 
 		-- Database
 		use 'tpope/vim-dadbod'
