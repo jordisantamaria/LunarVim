@@ -1,15 +1,17 @@
 require('lv-globals')
 vim.cmd('luafile '..CONFIG_PATH..'/lv-settings.lua')
 require('settings')
+require('lv-gitblame')
 require('lv-matchup')
 require('plugins')
 require('lv-utils')
 require('lv-autocommands')
 require('keymappings')
 require('lv-nvimtree') -- This plugin must be required somewhere before colorscheme.  Placing it after will break navigation keymappings
-require('colorscheme') -- This plugin must be required somewhere after nvimtree. Placing it before will break navigation keymappings 
+require('colorscheme') -- This plugin must be required somewhere after nvimtree. Placing it before will break navigation keymappings
 require('lv-galaxyline')
 require('lv-comment')
+require('lv-gitblame')
 require('lv-compe')
 require('lv-barbar')
 require('lv-dashboard')
@@ -32,7 +34,6 @@ if O.extras then
 end
 
 
-require('lv-dadbod')
 
 -- TODO is there a way to do this without vimscript
 vim.cmd('source '..CONFIG_PATH..'/vimscript/functions.vim')
@@ -68,6 +69,3 @@ require('lsp.vim-ls')
 require('lsp.vue-ls')
 require('lsp.yaml-ls')
 require('lsp.elixir-ls')
-
--- lsp saga is creating ca mappings, which conflicts which default behavior
-vim.cmd('nunmap ca')

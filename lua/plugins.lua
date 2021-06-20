@@ -90,6 +90,7 @@ return require("packer").startup(function(use)
 		-- Sane gx for netrw_gx bug
     use {"felipec/vim-sanegx"}
 
+    require_plugin("nvim-lspconfig")
     use 'tpope/vim-fugitive'
 		use 'tpope/vim-rhubarb'
 		use 'tommcdo/vim-fubitive'
@@ -157,6 +158,7 @@ return require("packer").startup(function(use)
 
 
     require_plugin("lspsaga.nvim")
+    require_plugin("nvim-lspinstall")
     require_plugin('trouble.nvim')
     require_plugin("friendly-snippets")
     require_plugin("popup.nvim")
@@ -182,8 +184,8 @@ return require("packer").startup(function(use)
     require_plugin("galaxyline.nvim")
     require_plugin("barbar.nvim")
     require_plugin('lsp-rooter.nvim')
-    require_plugin("nvim-ts-context-commentstring")
     require_plugin("TrueZen.nvim")
+    require_plugin("nvim-ts-context-commentstring")
 
     -- Extras
     if O.extras then
