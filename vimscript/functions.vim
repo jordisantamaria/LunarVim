@@ -64,6 +64,14 @@ autocmd User GoyoLeave set laststatus=2
 " autocmd! User GoyoEnter lua require('galaxyline').disable_galaxyline()
 " autocmd! User GoyoLeave lua require('galaxyline').galaxyline_augroup()
 
+function! QuickFixToggle()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+
 let g:goyo_width=90
 let g:goyo_height=95
 

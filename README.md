@@ -82,12 +82,11 @@ sudo pacman -S base-devel cmake unzip ninja tree-sitter
 
 Download and compile Neovim
 ```bash
-cd ~
-sudo rm -r neovim
-git clone https://github.com/neovim/neovim
+cd $(mktemp -d)
+git clone https://github.com/neovim/neovim --depth 1
 cd neovim
 sudo make CMAKE_BUILD_TYPE=Release install
-cd ~
+cd ..
 sudo rm -r neovim
 ```
 or if you are on Arch you can get it from the AUR
@@ -95,6 +94,7 @@ or if you are on Arch you can get it from the AUR
 yay -S neovim-git
 ```
 
+if you are on Gentoo you have to emerge the 9999 neovim version with luajit as the lua single target
 # Getting started
 
 ## Home screen
@@ -124,9 +124,11 @@ Or you can translate your old bindings to lua and keep them in the provided keym
 
 # Install your own plugins
 The steps for configuring your own plugin are:
-1. Add the plugin to plugins.lua
-2. If the plugin requires configuration.  Create a configuration file for it
-3. If you created a configuration, require the file in init.lua
+1. Add the plugin to `plugins.lua
+`
+2. If the plugin requires configuration, create a configuration file for it
+3. If you created a configuration, require the file in `init.lua
+`
 4. Use Packer to download and install the plugin
 
 ## An example installation of the colorizer plugin
@@ -183,7 +185,7 @@ Packer manages your installed plugins.  Any time you make changes to your list o
 
 If you get an error message about missing plugins and the above commands do not work, remove the plugin directory and reinstall from scratch.
 ```bash
-sudo rm -R ~/.local/share/nvim
+rm -rf ~/.local/share/nvim/site
 :PackerCompile
 :PackerInstall
 ```
@@ -265,7 +267,7 @@ LunarVim lists the attached lsp server in the bottom status bar.  If it says 'No
 If you still have problems after implementing the above measures, rule out plugin problems with the following. This reinstalls your plugins and language servers.
 
 ```md
-sudo rm -R ~/.local/share/nvim
+rm -rf ~/.local/share/nvim/site
 :PackerCompile
 :PackerInstall
 :LspInstall python   <-- REPLACE WITH YOUR OWN LANGUAGE
@@ -395,6 +397,21 @@ Whether you plan on using LunarVim as is or as a base to configure your own neov
 ```
 cd /.local/share/nvim/site/pack/packer/start/bracey.vim
 npm install --prefix server
+```
+
+# Uninstalling
+
+Changed your mind about LunarVim? To remove it entirely:
+
+``` lua
+# Delete the configuration files
+rm -R ~/.config/nvim
+
+# Delete the plugins
+rm -Rf ~/.local/share/nvim
+
+# Delete the logs
+rm -R ~/.cache/nvim
 ```
 
 ## Extra things included in this fork
