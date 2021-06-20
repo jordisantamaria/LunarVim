@@ -15,9 +15,9 @@ vim.o.cmdheight = 2 -- More space for displaying messages
 vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.o.mouse = "a" -- Enable your mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
-vim.o.termguicolors = true -- set term gui colors most terminals support this
+vim.o.termguicolors = true -- set trm gui colors most terminals support this
 vim.o.splitright = true -- Vertical splits will automatically be to the right
-vim.o.t_Co = "256" -- Support 256 colors
+-- vim.o.t_Co = "256" -- Support 256 colors
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 vim.cmd('set ts=4') -- Insert 2 spaces for a tab
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
@@ -47,5 +47,4 @@ vim.cmd('set nowrap') -- TODO it dont works. Press %, Match < and > as well.
 -- vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
-
 
