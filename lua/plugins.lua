@@ -73,7 +73,6 @@ return require("packer").startup(function(use)
 
         -- Color
 		use 'jordisantamaria/nvcode-color-schemes.vim'
-		use 'norcalli/nvim-colorizer.lua'
     -- Comments
     use {"terrortylor/nvim-comment", opt = true}
     use {'JoosepAlviste/nvim-ts-context-commentstring', opt = true}
@@ -91,9 +90,73 @@ return require("packer").startup(function(use)
 		-- Sane gx for netrw_gx bug
     use {"felipec/vim-sanegx"}
 
-    require_plugin("nvim-lspconfig")
+    use 'tpope/vim-fugitive'
+		use 'tpope/vim-rhubarb'
+		use 'tommcdo/vim-fubitive'
+		use 'rhysd/git-messenger.vim'
+
+		-- Registers
+		-- use 'gennaro-tedesco/nvim-peekup'
+
+
+		-- Navigation
+		use 'unblevable/quick-scope'
+
+		-- Object and motions
+
+		-- common utils for textobj plugins
+		use 'kana/vim-textobj-user'
+		-- Object for file ae, file no empty lines ie
+		use 'kana/vim-textobj-entire'
+		-- Object for search, i/ a/
+		use 'kana/vim-textobj-lastpat'
+		-- For select text on same indent level with ai
+		use 'kana/vim-textobj-indent'
+		-- Object for select a line, al with identation, il without identation
+		use 'kana/vim-textobj-line'
+		-- Object for select a variable segment, so snake case or camel case segment, with iv or av
+		use 'Julian/vim-textobj-variable-segment'
+		-- Motion for camelcase snakecase part
+		use 'bkad/CamelCaseMotion'
+
+		-- General enhancements
+
+		-- Search visual text selected with *
+		use 'jordisantamaria/vim-visual-star-search'
+		-- For better abrev and change snake_case to camelCase with crs, crc
+		use 'tpope/vim-abolish'
+		-- file system
+		use 'jordisantamaria/vim-file-utils'
+		-- Auto save buffer and session
+		use 'jordisantamaria/vim-workspace'
+		use 'tpope/vim-surround'
+		--  Repeat stuff
+		use 'tpope/vim-repeat'
+		-- Csv rainbow
+		use 'mechatroner/rainbow_csv'
+		-- Move between vim windows and tmux panes with same keys
+		use 'christoomey/vim-tmux-navigator'
+
+		-- For find in quickfix
+		use 'jremmen/vim-ripgrep'
+		-- For use fuzy finder in quickfix
+		use 'junegunn/fzf'
+		use 'airblade/vim-rooter'
+		use 'voldikss/vim-floaterm'
+		use 'junegunn/goyo.vim'
+		-- learn vim movements
+		use 'tjdevries/train.nvim'
+		-- For inteligent auto identation
+		use 'tpope/vim-sleuth'
+		use 'Asheq/close-buffers.vim'
+
+		-- Database
+		use 'tpope/vim-dadbod'
+		use 'kristijanhusak/vim-dadbod-ui'
+		use 'kristijanhusak/vim-dadbod-completion'
+
+
     require_plugin("lspsaga.nvim")
-    require_plugin("nvim-lspinstall")
     require_plugin('trouble.nvim')
     require_plugin("friendly-snippets")
     require_plugin("popup.nvim")
@@ -120,6 +183,7 @@ return require("packer").startup(function(use)
     require_plugin("barbar.nvim")
     require_plugin('lsp-rooter.nvim')
     require_plugin("nvim-ts-context-commentstring")
+    require_plugin("TrueZen.nvim")
 
     -- Extras
     if O.extras then
@@ -160,104 +224,5 @@ return require("packer").startup(function(use)
         -- use {'mattn/vim-gist', opt = true}
         -- use {'mattn/webapi-vim', opt = true}
 			-- Git
-		use {"lewis6991/gitsigns.nvim", opt = true}
-		use 'tpope/vim-fugitive'
-		use 'tpope/vim-rhubarb'
-		use 'tommcdo/vim-fubitive'
-		use 'rhysd/git-messenger.vim'
-
-		-- Registers
-		-- use 'gennaro-tedesco/nvim-peekup'
-
-
-		-- Navigation
-		use 'unblevable/quick-scope'
-		use {'phaazon/hop.nvim', branch = 'e5eb06d6f3caff15f3abd35c6c21135f93fa4eb7'}
-
-		-- Object and motions
-
-		-- common utils for textobj plugins
-		use 'kana/vim-textobj-user'
-		-- Object for file ae, file no empty lines ie
-		use 'kana/vim-textobj-entire'
-		-- Object for search, i/ a/
-		use 'kana/vim-textobj-lastpat'
-		-- For select text on same indent level with ai
-		use 'kana/vim-textobj-indent'
-		-- Object for select a line, al with identation, il without identation
-		use 'kana/vim-textobj-line'
-		-- Object for select a variable segment, so snake case or camel case segment, with iv or av
-		use 'Julian/vim-textobj-variable-segment'
-		-- Motion for camelcase snakecase part
-		use 'bkad/CamelCaseMotion'
-
-		-- General enhancements
-
-		-- Search visual text selected with *
-		use 'jordisantamaria/vim-visual-star-search'
-		-- For better abrev and change snake_case to camelCase with crs, crc
-		use 'tpope/vim-abolish'
-		-- file system
-		use 'jordisantamaria/vim-file-utils'
-		-- Auto save buffer and session
-		use 'jordisantamaria/vim-workspace'
-		use 'tpope/vim-surround'
-		--  Repeat stuff
-		use 'tpope/vim-repeat'
-		-- Csv rainbow
-		use 'mechatroner/rainbow_csv'
-		-- Move between vim windows and tmux panes with same keys
-		use 'christoomey/vim-tmux-navigator'
-
-		-- General Plugins
-		use 'kevinhwang91/nvim-bqf'
-		-- For find in quickfix
-		use 'jremmen/vim-ripgrep'
-		-- For use fuzy finder in quickfix
-		use 'junegunn/fzf'
-		use 'airblade/vim-rooter'
-		use 'metakirby5/codi.vim'
-		use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
-		use 'voldikss/vim-floaterm'
-		use 'monaqa/dial.nvim'
-		use 'junegunn/goyo.vim'
-		use 'andymass/vim-matchup'
-		use 'turbio/bracey.vim'
-		-- learn vim movements
-		use 'tjdevries/train.nvim'
-		-- For inteligent auto identation
-		use 'tpope/vim-sleuth'
-		use 'Asheq/close-buffers.vim'
-
-		-- Database
-		use 'tpope/vim-dadbod'
-		use 'kristijanhusak/vim-dadbod-ui'
-		use 'kristijanhusak/vim-dadbod-completion'
-
-
-        require_plugin("nvim-lspconfig")
-        require_plugin("lspsaga.nvim")
-        require_plugin("nvim-lspinstall")
-        require_plugin("friendly-snippets")
-        require_plugin("popup.nvim")
-        require_plugin("plenary.nvim")
-        require_plugin("telescope.nvim")
-        require_plugin("nvim-dap")
-        require_plugin("nvim-compe")
-        require_plugin("vim-vsnip")
-        require_plugin("nvim-treesitter")
-        require_plugin("nvim-ts-autotag")
-        require_plugin("nvim-tree.lua")
-        require_plugin("gitsigns.nvim")
-        require_plugin("which-key.nvim")
-        require_plugin("dashboard-nvim")
-        require_plugin("nvim-autopairs")
-        require_plugin("nvim-comment")
-        require_plugin("nvim-bqf")
-        require_plugin("nvcode-color-schemes.vim")
-        require_plugin("nvim-web-devicons")
-        require_plugin("galaxyline.nvim")
-        require_plugin("barbar.nvim")
     end
-
 end)

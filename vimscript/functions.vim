@@ -23,7 +23,7 @@ command! ResetHunk lua require 'lv-utils'.reset_hunk()
 command! ResetBuffer lua require 'lv-utils'.reset_buffer()
 command! PreviewHunk lua require 'lv-utils'.preview_hunk()
 command! BlameLine lua require 'lv-utils'.blame_line()
-command! W noa w
+" command! W noa w
 
 " Debugging
 command! DebugToggleBreakpoint lua require'dap'.toggle_breakpoint()
