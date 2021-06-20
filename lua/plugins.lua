@@ -95,7 +95,7 @@ return require("packer").startup(
 
 		-- Navigation
 		use 'unblevable/quick-scope'
-		use 'phaazon/hop.nvim'
+		use {'phaazon/hop.nvim', branch = 'e5eb06d6f3caff15f3abd35c6c21135f93fa4eb7'}
 
 		-- Object and motions
 
