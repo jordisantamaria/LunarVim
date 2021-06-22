@@ -5,7 +5,7 @@ require("which-key").setup {
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-			operators = false, -- adds help for operators like d, y, ...
+            operators = false, -- adds help for operators like d, y, ...
             motions = true, -- adds help for motions
             text_objects = true, -- help for text objects triggered after entering an operator
             windows = true, -- default bindings on <c-w>
