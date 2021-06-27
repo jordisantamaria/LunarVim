@@ -94,7 +94,7 @@ let g:workspace_undodir = $HOME . '/.vim/undo/'
 " let g:workspace_autosave_ignore = ['TelescopePrompt', 'NvimTree', '無名', '[Command Line]', 'vim', 'ignored', 'qf']
 let g:nvim_tree_width = 45 "30 by default
 let g:nvim_tree_ignore = [ '.git', '.idea', '.cache', '.undodir' ] "empty by default
-let g:workspace_autosave_files = ['python', 'typescript', 'yaml', 'yml', 'javascript', 'json', 'lua', 'vue', 'markdown', 'make', 'toml', 'sh', 'csv', 'zsh', 'conf', 'dockerfile', 'sql']
+let g:workspace_autosave_files = ['python', 'typescript', 'yaml', 'yml', 'javascript', 'json', 'lua', 'vue', 'markdown', 'make', 'toml', 'sh', 'csv', 'zsh', 'conf', 'dockerfile']
 let g:workspace_only_git_dir = 1
 
 function! CleanupStuff()

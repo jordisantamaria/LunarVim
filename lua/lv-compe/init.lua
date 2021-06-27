@@ -24,7 +24,7 @@ require'compe'.setup {
         nvim_lua = false,
         spell = {kind = "   (Spell)",filetypes={"markdown", "text"}},
         tags = false,
-        vim_dadbod_completion = true,
+        vim_dadbod_completion = {priority = 8},
         -- snippets_nvim = {kind = "  "},
         -- ultisnips = {kind = "  "},
         -- treesitter = {kind = "  "},

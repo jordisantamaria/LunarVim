@@ -120,7 +120,7 @@ local mappings = {
         t = {":DBUIToggle<CR>", "db ui toogle"},
         f = {":DBUIFindBuffer<CR>", "db find buffer"},
         r = {":DBUIRenameBuffer<CR>", "db rename buffer"},
-        l = {":DBUILastQueryInfo<CR>", "db last buffer"},
+        l = {":DBUILastQueryInfo<CR>", "db info last query"},
     },
     g = {
         name = "+Git",
