@@ -72,16 +72,13 @@ function! QuickFixToggle()
     endif
 endfunction
 
-let g:goyo_width=90
+let g:goyo_width=120
 let g:goyo_height=95
 
 augroup cloudformation
 	au!
 	au BufNewFile,BufRead *.yaml,*.yml set filetype=cloudformation
 augroup ENDV
-
-" Give a less contrast white for md files
-au BufNewFile,BufRead *.md hi Normal guifg=#B8BECC ctermfg=252 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
 
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.icons = "both"
@@ -109,25 +106,6 @@ autocmd VimLeavePre * call CleanupStuff()
 "Heading === line object
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rvg_"<cr>
 
-" with g@ calls function as an operator
-nnoremap R :set operatorfunc=ReplaceOperator<cr>g@
-vnoremap R :<c-u>call ReplaceOperator(visualmode())<cr>
-
-function! ReplaceOperator(type)
-    let saved_unnamed_register = @@
-
-    if a:type ==# 'v'
-        normal! `<v`>p
-    elseif a:type ==# 'V'
-        normal! `<V`>p
-    elseif a:type ==# 'char'
-        normal! `[v`]p
-    else
-        return
-    endif
-
-    let @@ = saved_unnamed_register
-endfunction
 
 " vim hardcodes background color erase even if the terminfo file does
     " not contain bce (not to mention that libvte based terminals

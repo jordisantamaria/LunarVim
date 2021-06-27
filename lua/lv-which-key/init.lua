@@ -73,18 +73,22 @@ vim.api.nvim_set_keymap('n', '<Leader>o', ':RnvimrToggle<CR>', {noremap = true, 
 vim.api.nvim_set_keymap('n', '<Leader>T', ':TSHighlightCapturesUnderCursor<CR>', {noremap = true, silent = true})
 -- TODO create entire treesitter section
 
+-- open projects
+vim.api.nvim_set_keymap('n', '<leader>sp', ":lua require'telescope'.extensions.project.project{}<CR>",
+                        {noremap = true, silent = true})
 local mappings = {
     ["/"] = "Comment",
     ["c"] = "Close Buffer",
     ["e"] = "Explorer",
     ["f"] = "Find File",
     ["n"] = "No Highlight",
-	["m"] = "Markdown Preview",
-	["o"] = "Ranger",
-	["T"] = "Treesitter highlight",
-	["v"] = {"<C-W>v", "Split vertical"},
-	["h"] = {"<C-W>s", "Split horizontal"},
-	["z"] = {":Goyo<CR>", "Zen"},
+    ["m"] = "Markdown Preview",
+    ["o"] = "Ranger",
+    ["T"] = "Treesitter highlight",
+    ["v"] = {"<C-W>v", "Split vertical"},
+    ["h"] = {"<C-W>s", "Split horizontal"},
+    ["z"] = {":TZAtaraxis<CR ", "Zen"},
+    [";"] = {"<cmd>Dashboard<cr>", "Dashboard"},
     a = {
         name = "+Actions",
         v = {":Codi<CR>", "Virtual REPL on"},
@@ -161,6 +165,12 @@ local mappings = {
         l = {":clast<CR>"        , "clast"},
         w = {":Rg<CR>"           , "find cursor word"},
         g = {":Glog %<CR>"       , "File git history"},
+        t = {":TroubleToggle<CR>"       , "TroubleToggle errors"},
+    },
+    r = {
+        name = "Replace",
+        f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Current File"},
+        p = {"<cmd>lua require('spectre').open()<cr>", "Project"}
     },
     s = {
         name = "+Search",
@@ -176,7 +186,8 @@ local mappings = {
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
         o = {"<cmd>Telescope vim_options<cr>", "vim_options"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
+        t = {"<cmd>Telescope live_grep<cr>", "Text"},
+        p = "Projects"
     },
     t = {
         name = "+Terminal",

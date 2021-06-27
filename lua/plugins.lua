@@ -52,6 +52,7 @@ return require("packer").startup(function(use)
     use {"hrsh7th/nvim-compe", opt = true}
     use {"hrsh7th/vim-vsnip", opt = true}
     use {"rafamadriz/friendly-snippets", opt = true}
+    use "jordisantamaria/nvim-snippets"
 
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
@@ -71,8 +72,8 @@ return require("packer").startup(function(use)
     use {"windwp/nvim-autopairs", opt = true}
     use {"kevinhwang91/nvim-bqf", opt = true}
 
-        -- Color
-		use 'jordisantamaria/nvcode-color-schemes.vim'
+    -- Color
+    use 'jordisantamaria/nvcode-color-schemes.vim'
     -- Comments
     use {"terrortylor/nvim-comment", opt = true}
     use {'JoosepAlviste/nvim-ts-context-commentstring', opt = true}
@@ -87,7 +88,7 @@ return require("packer").startup(function(use)
     -- Zen Mode
     use {"Pocco81/TrueZen.nvim", opt = true}
 
-		-- Sane gx for netrw_gx bug
+    -- Sane gx for netrw_gx bug
     use {"felipec/vim-sanegx"}
 
     require_plugin("nvim-lspconfig")
@@ -156,6 +157,8 @@ return require("packer").startup(function(use)
 		use 'kristijanhusak/vim-dadbod-ui'
 		use 'kristijanhusak/vim-dadbod-completion'
 
+		use 'jordisantamaria/vim-replace'
+
 
     require_plugin("lspsaga.nvim")
     require_plugin("nvim-lspinstall")
@@ -205,10 +208,12 @@ return require("packer").startup(function(use)
         require_plugin('hop.nvim')
         use {'norcalli/nvim-colorizer.lua', opt = true}
         require_plugin('nvim-colorizer.lua')
+        -- Search & Replace
         use {'windwp/nvim-spectre', opt = true}
-        require_plugin('windwp/nvim-spectre')
+        require_plugin('nvim-spectre')
         use {'simrat39/symbols-outline.nvim', opt = true}
         require_plugin('symbols-outline.nvim')
+        -- Treesitter playground
         use {'nvim-treesitter/playground', opt = true}
         require_plugin('playground')
         -- folke/todo-comments.nvim

@@ -31,6 +31,7 @@ if O.extras then
     require('lv-dial')
     require('lv-colorizer')
     require('lv-symbols-outline')
+    require('lv-spectre')
 end
 
 

@@ -35,16 +35,18 @@ require("true-zen").setup({
 	},
 	ataraxis = {
 		just_do_it_for_me = false,
-		left_padding = 5,
-		right_padding = 5,
-		top_padding = 1,
-		bottom_padding = 1
+		left_padding = 20,
+		right_padding = 20,
+		-- top_padding = 1,
+		-- bottom_padding = 1,
+		force_hide_statusline = true,
+		quit_untoggles_ataraxis = true
 	},
 	integrations = {
 		integration_galaxyline = true,
 		integration_vim_airline = false,
 		integration_vim_powerline = false,
-		integration_tmux = false,
+		integration_tmux = true,
 		integration_express_line = false,
 		integration_gitgutter = false,
 		integration_vim_signify = false,
