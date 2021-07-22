@@ -32,6 +32,7 @@ if O.extras then
     require('lv-colorizer')
     require('lv-symbols-outline')
     require('lv-spectre')
+    require('lv-dadbod')
 end
 
 

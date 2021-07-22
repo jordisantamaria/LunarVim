@@ -86,7 +86,7 @@ if O.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
 --     lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}
 -- }
 
-local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=4', formatStdin = true}
+-- local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=4', formatStdin = true}
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
@@ -108,7 +108,7 @@ require"lspconfig".efm.setup {
             json = {prettier},
             yaml = {prettier},
             vue = {prettier},
-            markdown = {markdownPandocFormat}
+            -- markdown = {markdownPandocFormat}
             -- javascriptreact = {prettier, eslint},
             -- javascript = {prettier, eslint},
             -- markdown = {markdownPandocFormat, markdownlint},

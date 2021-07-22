@@ -16,7 +16,7 @@ require'compe'.setup {
 
     source = {
         path = {kind = "   (Path)"},
-        buffer = {kind = "   (Buffer)"},
+        buffer = {kind = "   (Buffer)", priority = 8},
         calc = {kind = "   (Calc)"},
         vsnip = {kind = "   (Snippet)", priority = 10},
         nvim_lsp = {kind = "   (LSP)", priority = 9},
