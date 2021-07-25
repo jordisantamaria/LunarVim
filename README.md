@@ -95,15 +95,22 @@ yay -S neovim-git
 ```
 
 if you are on Gentoo you have to emerge the 9999 neovim version with luajit as the lua single target
-# Getting started
+
+
+Getting started
+===============================================================================
+
 
 ## Home screen
+
 The home screen is a plugin called dashboard.  It uses the Telescope plugin to find files or find words within files.  The home  screen provides a link to load saved Sessions.  The home screen links to the settings file located at this path: ~/.config/nvim/lv-settings.lua
 
 ## Leader and Whichkey
+
 The default leader key is set to \<Space>.  Pressing it will also open up whichkey.  Whichkey will help you easily access many of the default keybindings.
 
 ## Other key bindings
+
 Other key bindings can be found in ~/.config/nvim/lua/keymappings.lua
 
 If you already have a set of keybindings in vimscript that you prefer, source your vimscript file from ~/.config/nvim/init.lua
@@ -122,7 +129,11 @@ Or you can translate your old bindings to lua and keep them in the provided keym
 |~/.config/nvim/lua/keymappings.lua  |  Key bindings           |
 |~/.config/nvim/lua/plugins.lua      |  Add or remove plugins here           |
 
-# Install your own plugins
+
+Install your own plugins
+===============================================================================
+
+
 The steps for configuring your own plugin are:
 1. Add the plugin to `plugins.lua
 `
@@ -157,7 +168,11 @@ require('lv-colorizer')
 :PackerInstall
 ```
 
-# Using Packer
+
+Using Packer
+===============================================================================
+
+
 Packer manages your installed plugins.  Any time you make changes to your list of plugins in ~/.config/nvim/lua/plugins.lua you must first run the command :PackerCompile then :PackerInstall.
 ## Packer commands
 
@@ -190,7 +205,10 @@ rm -rf ~/.local/share/nvim/site
 :PackerInstall
 ```
 
-# Clipboard Support
+
+Clipboard Support
+===============================================================================
+
 
 - On Mac `pbcopy` should be built-in
 
@@ -217,7 +235,10 @@ rm -rf ~/.local/share/nvim/site
     mv /tmp/win32yank.exe ~/bin
     ```
 
-# LSP
+
+LSP
+===============================================================================
+
 
 To install a supported language server:
 
@@ -277,7 +298,10 @@ rm -rf ~/.local/share/nvim/site
 For a more in depth LSP support:
 [link](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md)
 
-# Useful Programs
+
+Useful Programs
+===============================================================================
+
 
 LunarVim depends on the following:
 
@@ -289,7 +313,10 @@ pynvim
 neovim-remote
 ```
 
-# EFM server
+
+EFM server
+===============================================================================
+
 
 In order for linters and formatters to work you will need to install
 `efm-langserver`
