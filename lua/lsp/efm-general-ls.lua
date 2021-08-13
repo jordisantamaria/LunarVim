@@ -86,7 +86,7 @@ if O.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
 --     lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}
 -- }
 
--- local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=4', formatStdin = true}
+local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=4', formatStdin = true}
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
@@ -101,8 +101,8 @@ require"lspconfig".efm.setup {
             sh = sh_arguments,
             javascript = tsserver_args,
             javascriptreact = tsserver_args,
-			typescript = tsserver_args,
-			typescriptreact = tsserver_args,
+            typescript = tsserver_args,
+            typescriptreact = tsserver_args,
             html = {prettier},
             css = {prettier},
             json = {prettier},

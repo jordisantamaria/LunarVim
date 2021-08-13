@@ -346,6 +346,7 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 npm install -g prettier
 npm install -g typescript
 npm install -g prettier-plugin-organize-imports        # For optimize imports automatically when formatting code
+npm install -g tsun      # For REPL typescript
 ```
 
 **Markdown**

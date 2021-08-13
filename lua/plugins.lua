@@ -135,7 +135,8 @@ return require("packer").startup(function(use)
 		--  Repeat stuff
 		use 'tpope/vim-repeat'
 		-- Csv rainbow
-		use 'mechatroner/rainbow_csv'
+		-- use 'mechatroner/rainbow_csv'
+		use 'chrisbra/csv.vim'
 		-- Move between vim windows and tmux panes with same keys
 		use 'christoomey/vim-tmux-navigator'
 
@@ -146,8 +147,9 @@ return require("packer").startup(function(use)
 		use 'airblade/vim-rooter'
 		use 'voldikss/vim-floaterm'
 		use 'junegunn/goyo.vim'
-		-- learn vim movements
-		use 'tjdevries/train.nvim'
+		use 'junegunn/vim-easy-align'
+		use 'mzlogin/vim-markdown-toc'
+		use 'dhruvasagar/vim-table-mode'
 		-- For inteligent auto identation
 		use 'tpope/vim-sleuth'
 		use 'Asheq/close-buffers.vim'

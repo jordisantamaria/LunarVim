@@ -116,3 +116,24 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rvg_"<cr>
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" For format code to snippet format
+let @s = 'i.jkr"La.jkr"a,jkHj'
+
+" Toc config
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
+let g:vmt_list_item_char = '-'
+
+" Csv config
+let g:csv_nomap_space = 1
+let g:csv_nomap_h = 1
+let g:csv_nomap_l = 1
+
+" To autoalign automatically when open csv
+" aug CSV_Editing
+"     au!
+"     au BufRead,BufWritePost *.csv :let b:csv_arrange_align = 'l*'
+"     au BufRead,BufWritePost *.csv :%ArrangeColumn
+"     au BufWritePre *.csv :%UnArrangeColumn
+" aug end

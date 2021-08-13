@@ -64,7 +64,10 @@ vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true,
 vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
 
 -- markdown preview
-vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreviewToggle<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreviewToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", "<leader>a", ":EasyAlign*|<cr>", {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap("v", "<leader>b", ":ArrangeColumn<cr>", {noremap = true, silent = true})
 
 -- Ranger
 vim.api.nvim_set_keymap('n', '<Leader>o', ':RnvimrToggle<CR>', {noremap = true, silent = true})
@@ -82,7 +85,6 @@ local mappings = {
     ["e"] = "Explorer",
     ["f"] = "Find File",
     ["n"] = "No Highlight",
-    ["m"] = "Markdown Preview",
     ["o"] = "Ranger",
     ["T"] = "Treesitter highlight",
     ["v"] = {"<C-W>v", "Split vertical"},
@@ -95,9 +97,8 @@ local mappings = {
         V = {":Codi!<CR>", "Virtual REPL off"},
         l = {":Bracey<CR>", "Html live server"},
         L = {":BraceyStop<CR>", "Html live server"},
-        w = {":TrainWord<CR>", "Train word"},
-        m = {":TrainUpDown<CR>", "Train line"},
-		o = {":TrainTextObj<CR>", "Train Object"},
+        i = {":set ignorecase<cr>:set smartcase<cr>", "ignore case"},
+        I = {":set ignorecase!<cr>:set smartcase!<cr>", "not ignore case"},
     },
     b = {
         name = "+Buffer",
@@ -167,6 +168,10 @@ local mappings = {
         g = {":Glog %<CR>"       , "File git history"},
         t = {":TroubleToggle<CR>"       , "TroubleToggle errors"},
     },
+    m = {
+        m = {":MarkdownPreviewToggle<CR>", "Markdown Preview"},
+        t = {":GenTocGFM<CR>", "Generate Toc"},
+    },
     r = {
         name = "Replace",
         f = {"<cmd>lua require('spectre').open_file_search()<cr>", "Current File"},
@@ -197,6 +202,17 @@ local mappings = {
         t = {":FloatermToggle<CR>", "Python"},
     },
 
+    x = {
+        name = "+Csv",
+        h = {":HiColumn<CR>", "Highlight column"},
+        H = {":HeaderToogle<CR>", "HeaderToogle"},
+        d = {":DeleteColumn<CR>", "Delete column"},
+        D = {":Duplicate<CR>", "Check duplicates in column"},
+        w = {":WhatColumn!<CR>", "Column name"},
+        W = {":WhatColumn<CR>", "Column number"},
+        n = {":NrColumns<CR>", "Num columns"},
+        s = {":SearchInColumn", "Search in column n, /t/"},
+    },
 
     c = {
         name = "+Cheatsheets",
