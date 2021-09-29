@@ -431,7 +431,7 @@ npm install --prefix server
 
 Changed your mind about LunarVim? To remove it entirely:
 
-``` lua
+`nvim-osx64`` lua
 # Delete the configuration files
 rm -R ~/.config/nvim
 
